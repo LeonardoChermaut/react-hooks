@@ -1,9 +1,10 @@
-import { api } from '../../data/api';
+import { ApiInstance } from '../../data/api';
 import { useAxios } from '../../hooks/useAxios';
 
 export const Jokes: React.FC = () => {
+  const apiInstance = ApiInstance.getInstance().getApi();
   const { response, loading, error, reloadRequest } = useAxios({
-    axiosInstance: api,
+    axiosInstance: apiInstance,
     url: '/',
     method: 'GET',
   });
